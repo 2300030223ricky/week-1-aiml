@@ -32,7 +32,7 @@ plt.title('Elbow Method for Optimal K')
 plt.show()
 
 # Fit K-Means with optimal clusters (e.g., K=5)
-kmeans = KMeans(n_clusters=3, random_state=42)
+kmeans = KMeans(n_clusters=3,random_state=42)
 clusters = kmeans.fit_predict(X_scaled)
 
 # Add cluster labels to the original data
