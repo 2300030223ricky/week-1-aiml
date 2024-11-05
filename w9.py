@@ -35,6 +35,6 @@ print("Classification Report:\n", report)
 
 unseen_data = [[6.1, 3.0, 4.6, 1.4]]
 
-prediction = nb_classifier.predict(unknown_data)
+prediction = nb_classifier.predict(unseen_data)
 
 print(f"\nThe predicted species for the unknown data {unseen_data} is: {prediction} <0: Setosa, 1: Versicolor, 2: Virginica>")

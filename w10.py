@@ -16,15 +16,6 @@ print(df.head())
 print("Missing values before imputation:")
 print(df.isnull().sum())
 
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Initialize the Linear Regression model
-model = LinearRegression()
-
-# Train the model
-model.fit(X_train, y_train)
-
 # Categorical columns to be encoded
 categorical_cols = ['mainroad', 'guestroom', 'basement', 'hotwaterheating',
                     'airconditioning', 'prefarea', 'furnishingstatus']
@@ -32,11 +23,7 @@ categorical_cols = ['mainroad', 'guestroom', 'basement', 'hotwaterheating',
 # Apply One-Hot Encoding to categorical columns
 df_encoded = pd.get_dummies(df, columns=categorical_cols, drop_first=True)  # drop_first=True avoids collinearity
 
-
-df_encoded.head()
-
-df_encoded.describe()
-
+# Define features and target variable
 X = df_encoded.drop(columns=['price'])
 y = df_encoded['price']
 
@@ -51,8 +38,6 @@ model.fit(X_train, y_train)
 
 # Predict house prices on the test data
 y_pred = model.predict(X_test)
-
-y_pred
 
 # Evaluate the model
 mse = mean_squared_error(y_test, y_pred)
